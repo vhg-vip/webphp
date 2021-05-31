@@ -1,0 +1,16 @@
+.header{
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+}
+.navbar-nav{
+    display: flex;
+    justify-content: space-between;
+}
+.menu{
+    background-color: #002463 !important;
+}
+.header .nav-link{
+    color: white !important;
+}
