@@ -17,14 +17,15 @@
                 $sql = "SELECT * FROM tbl_user WHERE user_name = '".$username."' AND user_password = '".$password."' ";
                 $res = executeResult($sql);
                 if($res){
-                    // echo $res[0]['user_name'] . '   ' . $res[0]['user_password'];
+                    // echo $res[0]['user_name'] . '   ' . $res[0]['isAdmin'];
                     $_SESSION['user'] = $username;
                     $_SESSION["login_time_stamp"] = time();
-                    // echo $_SESSION["login_time_stamp"];
-                    // setcookie("user_name", $username, time()+ 60,'/');
-                    // print_r($_COOKIE);
-                    // echo $_SESSION["user"];
-                    echo 'ok';
+                    if($res[0]['isAdmin'] === '1'){
+                        echo 'isAdmin';
+                    }
+                    else{
+                        echo 'ok';
+                    }
                 }
                 else{
                     echo "Tên đăng nhập hoặc mật khẩu không đúng";

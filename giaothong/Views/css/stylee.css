@@ -46,3 +46,10 @@
 small{
     color: red;
 }
+.icon{
+    font-size: 50px;
+    color: #002463;
+    background-color: #c6e4ff;
+    padding: 20px;
+    border-radius: 50%;
+}

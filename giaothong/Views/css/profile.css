@@ -1,7 +1,6 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
     color: #000;
 }
 
@@ -33,4 +32,24 @@ body {
     font-size: 14px;
     padding: 5px 10px;
     color: #000;
+}
+
+.avatar{
+    position: relative;
+}
+.change_avt{
+    cursor: pointer;
+    position: absolute;
+    bottom: 6%;
+    right: 30%;
+}
+.change_avt .fa-camera{
+    font-size: 16px;
+    background-color: #c6e4ff;
+    color: #002463;
+    padding: 10px;
+    border-radius: 50%;
+}
+#avatar{
+    /* display: none; */
 }

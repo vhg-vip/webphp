@@ -1,4 +1,4 @@
-<script src="../js/adminn.js"></script>
+<!-- <script src="../js/admin.js"></script> -->
 <!-- <link rel="stylesheet" href="../css/admin.css"> -->
 
 

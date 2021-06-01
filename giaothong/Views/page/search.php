@@ -13,55 +13,28 @@
     <link rel="stylesheet" href=" ../css/header.css">
 </head>
 
-<?php
-    // $sql = 'SELECT * FROM tbl_loivipham WHERE biensoxe = ';
-    
-    $bienso = '';
-    if(!empty($_POST)){
-        if(isset($_POST['bienso'])){
-            $bienso = $_POST['bienso'];
-        }
-    }
-    $res = [];
-    if(isset($_GET['bienso']) && $_GET['bienso']!=''){
-        $sql='select * from tbl_loivipham where biensoxe like "%'.$_GET['bienso'].'%"';
-        $res = executeResult($sql);
-    }
-    else{
-        // $sql = "SELECT * FROM tbl_loivipham";
-    }
-    
-?>
+
 <body>
-    <!-- <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #002463" >
-        <a class="navbar-brand" href="home.php"><img src="https://img.icons8.com/color/50/000000/police-car.png"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav w-100">
-                <div class="d-flex">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.php">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="search.php">Tra cứu vi phạm</a>
-                    </li>
-                </div>
-                <div class="d-flex">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Đăng nhập</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Đăng ký</a>
-                    </li>
-                </div>
-            </ul>
-        </div>
-        </nav>
-    </div> -->
     <?php require('./header.php'); ?>
+    <?php
+        // $sql = 'SELECT * FROM tbl_loivipham WHERE biensoxe = ';
+        
+        $bienso = '';
+        if(!empty($_POST)){
+            if(isset($_POST['bienso'])){
+                $bienso = $_POST['bienso'];
+            }
+        }
+        $res = [];
+        if(isset($_GET['bienso']) && $_GET['bienso']!=''){
+            $sql='select * from tbl_loivipham where biensoxe like "%'.$_GET['bienso'].'%"';
+            $res = executeResult($sql);
+        }
+        else{
+            // $sql = "SELECT * FROM tbl_loivipham";
+        }
+        
+    ?>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb" style="background-color: transparent;">
             <li class="breadcrumb-item"><a href="home.php">Trang chủ</a></li>

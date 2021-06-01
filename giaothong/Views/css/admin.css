@@ -25,6 +25,12 @@
     width: 0px !important;
     opacity: 0;
 }
+.hide-sidebar .nav-link{
+    padding: 0px;
+}
+.nav-link{
+    width: 100%;
+}
 .sidebar .nav-link{
     color: white !important;
 }

@@ -1,0 +1,25 @@
+
+.alert-text {
+    font-size: 17px;
+    color: red;
+}
+
+.text{
+    font-size: 18px;
+    padding-top: 5px;
+    font-weight: 500;
+}
+
+.submit-bt {
+    width: 160px;
+    height: 40px;
+    font-size: 18px !important;
+    text-align: center;
+    background-color: #002463 !important;
+    box-shadow: none !important;
+  }
+  
+  .submit-bt:hover {
+    opacity: 80%;
+  }
+

@@ -1,6 +1,19 @@
 function showSidebar(){
     $('.sidebar').toggleClass('hide-sidebar');
 }
+function isEmail(email) {
+    if(email == '') return true;
+    let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+function isPhoneNumber(phone){
+    if(phone == '') return true;
+    if(phone.length > 10) return false;
+    else{
+        let regex =  /([0-9]{10})/;
+        return regex.test(phone);
+    }
+}
 
 function deleteUser(id){
     $.ajax({    
@@ -17,58 +30,24 @@ function deleteUser(id){
 }
 
 function editUser(id){
-    $('.active-input').attr('disabled', 'disabled');
-    $('.active-input').removeClass('active-input');
-    $('.edit').show();
-    $('.update').hide();
-    $('.cancel').hide();
-
-    $(`.input${id}`).removeAttr('disabled');
-    $(`.input${id}`).addClass('active-input');
-    $(`.edit${id}`).hide();
-    $(`.update${id}`).show();
-    $(`.cancel${id}`).show();
-}
-
-function cancelUpdate(id){
-    $(`.input${id}`).attr('disabled', 'disabled');
-    $(`.input${id}`).removeClass('active-input');
-    
-    $(`.edit${id}`).show();
-    $(`.update${id}`).hide();
-    $(`.cancel${id}`).hide();
-    location.reload();
-}
-
-function isEmail(email) {
-    if(email == '') return true;
-    let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email);
-}
-function isPhoneNumber(phone){
-    if(phone == '') return true;
-    if(phone.length > 10) return false;
-    else{
-        let regex =  /([0-9]{10})/;
-        return regex.test(phone);
-    }
-}
-function updateUser(id){
+    console.log(id)
     let user = {
-        name: $(`.name${id}`).val(),
-        email: $(`.email${id}`).val(),
-        password: $(`.password${id}`).val(),
-        phone: $(`.phone${id}`).val(),
-        age: $(`.age${id}`).val(),
-        address: $(`.address${id}`).val()
+        name: $(`#name${id}`).val(),
+        email: $(`#email${id}`).val(),
+        password: $(`#password${id}`).val(),
+        phone: $(`#phone${id}`).val(),
+        age: $(`#age${id}`).val(),
+        address: $(`#address${id}`).val(),
+        fullname: $(`#fullname${id}`).val(),
+        gender: $(`#gender${id}`).val(),
+        birth: $(`#birth${id}`).val(),
+        job: $(`#job${id}`).val(),
     }
     if(!isEmail(user.email)){
-        $('#error').html('Email chưa đúng');
-        $('#myModal').modal('show');
+        $('.error').html('Email chưa đúng');
     } 
     else if(!isPhoneNumber(user.phone)){
-        $('#error').html('Số điện thoại chưa đúng')
-        $('#myModal').modal('show');
+        $('.error').html('Số điện thoại chưa đúng')
     }
     else{
         var  userJson= JSON.stringify(user);
@@ -77,13 +56,8 @@ function updateUser(id){
             url: "../controller/updateUser.php", 
             data:{userid: id, user_update: userJson},            
             success: function(data){   
-                // console.log(data);
-                $(`.input${id}`).attr('disabled', 'disabled');
-                $(`.input${id}`).removeClass('active-input');
-                
-                $(`.edit${id}`).show();
-                $(`.update${id}`).hide();
-                $(`.cancel${id}`).hide();
+                console.log(data);
+                location.reload();
             }
         });
     }
@@ -98,7 +72,7 @@ function deleteLoiViPham(id){
         success: function(data){   
             // $('#msg').html(data);
             console.log(data);
-            // location.reload();
+            location.reload();
         }
     });
 }
@@ -167,3 +141,46 @@ function addLoiViPham(){
     }
 }
 
+function deleteSupport(id){
+    console.log(id)
+    $.ajax({    
+        type: "GET",
+        url: "../controller/deleteSupport.php", 
+        data:{supportid: id},            
+        dataType: "html",                  
+        success: function(data){   
+            // $('#msg').html(data);
+            console.log(data);
+            location.reload();
+        }
+    });
+}
+
+function editSupport(id){
+    let support = {
+        name: $(`#support-name${id}`).val(),
+        email: $(`#support-email${id}`).val(),
+        phone: $(`#support-phone${id}`).val(),
+        content: $(`#support-content${id}`).val(),
+        status: $(`#support-status${id}`).val(),
+    }
+    console.log(support);
+    let  dataJson= JSON.stringify(support);
+    let check = true;
+    for(let i in support){
+        if(support[i]===''){
+            check = false;
+        }
+    }
+    if(check){
+        $.ajax({    
+            type: "GET",
+            url: "../controller/updateSupport.php", 
+            data:{support_id: id, data_update: dataJson },            
+            success: function(data){   
+                console.log(data);
+                location.reload();
+            }
+        });
+    }
+}

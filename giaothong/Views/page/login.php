@@ -63,6 +63,9 @@
                     if(response === 'ok'){
                         location.replace('./home.php');
                     }
+                    else if(response === 'isAdmin'){
+                        location.replace('./admin.php');
+                    }
                     else{
                         $("#error").text(response);
                     }

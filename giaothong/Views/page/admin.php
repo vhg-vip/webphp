@@ -13,16 +13,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href=" ../css/adminnn.css">
+    <link rel="stylesheet" href=" ../css/admin.css">
     <script src="../js/admin.js"></script>
 </head>
+<?php
+    require '../controller/session.php';
+?>
 <body>
-    <div class="header_admin">
-        <span onclick="showSidebar()"><i class="fas fa-bars text-white"></i></span>
-        <div class="sidebar_logo">
-            <img src="https://img.icons8.com/color/50/000000/police-car.png"/>
-            <span class="text-white ml-3">ADMIN</span>
+    <div class="header_admin d-flex justify-content-between">
+        <div class="header_admin">
+            <span onclick="showSidebar()"><i class="fas fa-bars text-white"></i></span>
+            <div class="sidebar_logo">
+                <img src="https://img.icons8.com/color/50/000000/police-car.png"/>
+                <span class="text-white ml-3">ADMIN</span>
+            </div>
         </div>
+        
+        <a href="login.php"><i class="fas fa-sign-out-alt text-white" style="font-size: 24px; "></i></a>
     </div>
     <div class="admin_body">
         <!-- <div class="col-md-2"> -->
@@ -30,8 +37,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" onclick="showSidebar()" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Người dùng</a>
                     <a class="nav-link" onclick="showSidebar()" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">DS vi phạm</a>
-                    <a class="nav-link" onclick="showSidebar()" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                    <a class="nav-link" onclick="showSidebar()" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                    <a class="nav-link" onclick="showSidebar()" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Phản ánh</a>
                 </div>
             </div>
         <!-- </div> -->
@@ -49,8 +55,11 @@
                         require './tableVipham.php';
                     ?>
                 </div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <?php
+                        require './tableSupport.php';
+                    ?>
+                </div>
             </div>
         </div>
     </div>
