@@ -5,7 +5,7 @@
     print_r($data);
     // echo $user->name;
 
-    $sql = "INSERT INTO tbl_loivipham (biensoxe, loivipham, diadiem, hinhthuc, mucphat, ngaygio, trangthai)  value ('$data->bienso' , '$data->loivipham', '$data->diadiem', '$data->hinhthuc', '$data->mucphat', '$data->thoigian', '$data->trangthai')";
+    $sql = "INSERT INTO tbl_loivipham (biensoxe, loivipham, diadiem, hinhthuc, mucphat, ngaygio, trangthai, phuongtien)  value ('$data->bienso' , '$data->loivipham', '$data->diadiem', '$data->hinhthuc', '$data->mucphat', '$data->thoigian', '$data->trangthai', '$data->phuongtien')";
     echo $sql;
     execute($sql);
 ?>

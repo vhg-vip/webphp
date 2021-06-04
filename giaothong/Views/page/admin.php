@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href=" ../css/admin.css">
-    <script src="../js/admin.js"></script>
+    <script src="../js/adminnnn.js"></script>
 </head>
 <?php
     require '../controller/session.php';
@@ -63,8 +63,5 @@
             </div>
         </div>
     </div>
-    <script>
-        
-    </script>
 </body>
 </html>

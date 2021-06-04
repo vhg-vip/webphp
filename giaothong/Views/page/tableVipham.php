@@ -1,4 +1,4 @@
-<!-- <script src="../js/admin.js"></script> -->
+<!-- <script src="../js/adminnnn.js"></script> -->
 <!-- <link rel="stylesheet" href="../css/admin.css"> -->
 
 
@@ -18,10 +18,24 @@
             <div class="modal-body">
             <form class="text-left">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="bienso">Biển số xe</label>
                             <input type="text" class="form-control" required id="bienso" placeholder="Nhập biển số xe" value="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phuongtien">Phương tiện</label>
+                            <select class="form-control" required id="phuongtien">
+                                <option selected value="Xe máy">Xe máy</option>
+                                <option value="Ô tô">Ô tô</option>
+                                <option value="Xe tải">Xe tải</option>
+                                <option value="Xe đạp điện">Xe đạp điện</option>
+                                <option value="Xe khách">Xe khách</option>
+                                <option value="Xe đạp">Xe đạp</option>
+                                <option value="Xích lô">Xích lô</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -81,12 +95,13 @@
     <thead class="thead-light">
         <tr>
             <th style="width: 3%;">#</th>
-            <th style="width: 12%;">Biển số xe</th>
+            <th style="width: 10%;">Biển số xe</th>
             <th style="width: 15%;">Lỗi vi phạm</th>
             <th style="width: 15%;">Địa điểm</th>
+            <th style="width: 10%;">Phương tiện</th>
             <th style="width: 10%;">Thời gian</th>
             <th style="width: 10%;">Hình thức phạt</th>
-            <th style="width: 10%">Mức phạt</th>
+            <th style="width: 5%">Mức phạt</th>
             <th style="width: 10%">Trạng thái</th>
             <th style="width: 20%;">Hành động</th>
         </tr>
@@ -104,6 +119,7 @@
                     .'<td>'.$item['biensoxe'].'</td>'
                     .'<td>'.$item['loivipham'].'</td>'
                     .'<td>'.$item['diadiem'].'</td>'
+                    .'<td>'.$item['phuongtien'].'</td>'
                     .'<td>'.$item['ngaygio'].'</td>'
                     .'<td>'.$item['hinhthuc'].'</td>'
                     .'<td>'.$item['mucphat'].'</td>'
@@ -121,16 +137,86 @@
                                     <div class="modal-body text-left">
                                         <form>
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Mã lỗi</label>
                                                         <input type="text" class="form-control" disabled value="'.$item['id'].'">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label for="bienso'.$item['id'].'">Biển số xe</label>
                                                         <input type="text" class="form-control" required id="bienso'.$item['id'].'" placeholder="Nhập biển số xe" value="'.$item['biensoxe'].'">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="phuongtien'.$item['id'].'">Phương tiện</label>
+                                                        <select class="form-control" required id="phuongtien'.$item['id'].'">';
+                                                        if($item['phuongtien'] === 'Xe máy'){
+                                                            echo '<option selected value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else if($item['phuongtien'] === 'Ô tô'){
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option selected value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else if($item['phuongtien'] === 'Xe tải'){
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option selected value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else if($item['phuongtien'] === 'Xe đạp điện'){
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option selected value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else if($item['phuongtien'] === 'Xe khách'){
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option selected value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else if($item['phuongtien'] === 'Xe đạp'){
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option selected value="Xe đạp">Xe đạp</option>
+                                                            <option value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        else{
+                                                            echo '<option value="Xe máy">Xe máy</option>
+                                                            <option value="Ô tô">Ô tô</option>
+                                                            <option value="Xe tải">Xe tải</option>
+                                                            <option value="Xe đạp điện">Xe đạp điện</option>
+                                                            <option value="Xe khách">Xe khách</option>
+                                                            <option value="Xe đạp">Xe đạp</option>
+                                                            <option selected value="Xích lô">Xích lô</option>';
+                                                        }
+                                                        echo '</select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">

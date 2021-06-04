@@ -6,7 +6,7 @@
     // echo $id;
     // print_r($data);
 
-    $sql = "UPDATE tbl_loivipham SET biensoxe = '".$data->bienso."',  loivipham = '".$data->loivipham."',  diadiem = '".$data->diadiem."',  hinhthuc = '".$data->hinhthuc."',  mucphat = '".$data->mucphat."',  ngaygio = '".$data->thoigian."',  trangthai = '".$data->trangthai."'  WHERE id = '".$id."'";
+    $sql = "UPDATE tbl_loivipham SET biensoxe = '".$data->bienso."',  loivipham = '".$data->loivipham."',  diadiem = '".$data->diadiem."',  hinhthuc = '".$data->hinhthuc."',  mucphat = '".$data->mucphat."',  ngaygio = '".$data->thoigian."',  trangthai = '".$data->trangthai."',  phuongtien = '".$data->phuongtien."'  WHERE id = '".$id."'";
     echo $sql;
     execute($sql);
 ?>

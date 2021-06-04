@@ -4,7 +4,7 @@
     if (session_id() === '') session_start();
 
     $username = ""; $password = "";
-    
+    // print_r($_POST);
     if(!empty($_POST)){
         if(isset($_POST['usernameInput']) && isset($_POST['passwordInput'])){
             $username = $_POST['usernameInput'];

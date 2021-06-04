@@ -17,8 +17,8 @@
 
     <link rel="stylesheet" href="../css/header.css" />
 
-    <link rel="stylesheet" href="../css/profiles.css">
-    <script src="../js/profile.js"></script>
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../js/profiles.js"></script>
 </head>
 
 <body>
@@ -32,6 +32,12 @@
         $profile = executeResult($sql);
         // print_r($profile )
     ?>
+    <nav aria-label="breadcrumb mx-3 my-2">
+        <ol class="breadcrumb" style="background-color: transparent;">
+            <li class="breadcrumb-item"><a href="home.php">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
+        </ol>
+    </nav>
     <header class=" mt-5">
         <div class="rt-container">
             <div class="col-rt-12">
@@ -54,12 +60,12 @@
                                 <div class="col-lg-4">
                                     <div class="card shadow-sm">
                                         <div class="card-header bg-transparent text-center">
-                                            <img class="profile_img" src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="student dp">
+                                            <img class="profile_img" src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png">
                                             
                                             <h3><?php echo $profile[0]['user_fullname'] ?></h3>
                                         </div>
                                         <div class="card-body">
-                                            <p class="mb-0"><strong class="pr-1">Tên đăng nhập:</strong><?php echo $profile[0]['user_name'] ?></p>
+                                            <p class="mb-0"><strong class="pr-1">Tên đăng nhập:</strong><?php echo $profile[0]['user_name']; ?></p>
                                             <p class="mb-0"><strong class="pr-1">Tuổi:</strong><?php echo $profile[0]['user_age'] ?></p>
                                         </div>
                                     </div>
@@ -107,7 +113,41 @@
                                 </div>
                             </div>
                             <div class="mt-3 text-right">
-
+                                <!-- change password -->
+                                <button class="btn btn-info edit" data-toggle="modal" data-target="#changePassword">Đổi mật khẩu</button>
+                                <div class="modal fade" id="changePassword" tabindex="-1" aria-hidden="true"> 
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h3 class="">Đổi mật khẩu</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-left">
+                                                
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="old-password">Mật khẩu cũ</label>
+                                                        <input type="password" class="form-control" required id="old-password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="new-password">Mật khẩu mới</label>
+                                                        <input type="password" class="form-control" required id="new-password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="comfirm-new-password">Nhập lại mật khẩu mới</label>
+                                                        <input type="password" class="form-control" required id="comfirm-new-password">
+                                                    </div>
+                                                    <p id="msg" style="color: red"></p>
+                                                    <?php
+                                                        echo '<button type="button" class="btn btn-success text-end" onclick="changePassword('.$profile[0]['user_id'].')">Xác nhận</button>';
+                                                    ?> 
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- edit profile modal -->
                                 <button class="btn btn-info edit" data-toggle="modal" data-target="#editProfile">Chỉnh sửa</button>
                                 <div class="modal fade" id="editProfile" tabindex="-1" aria-hidden="true">
@@ -125,7 +165,7 @@
                                                             <div class="form-group">
                                                                 <label for="name">Tên đăng nhập</label>
                                                                 <?php 
-                                                                    echo '<input type="text" class="form-control" required id="name" placeholder="Nhập tên đăng nhập" value="'.$profile[0]['user_name'].'">'
+                                                                    echo '<input type="text" class="form-control" required id="name" placeholder="Nhập tên đăng nhập" value="'.$profile[0]['user_name'].'">';
                                                                 ?>
                                                                 
                                                             </div>
@@ -134,7 +174,7 @@
                                                             <div class="form-group">
                                                                 <label for="password">Mật khẩu</label>
                                                                 <?php 
-                                                                    echo '<input type="password" class="form-control" required id="password" placeholder="Nhập mật khẩu" value="'.$profile[0]['user_name'].'">'
+                                                                    echo '<input type="password" disabled class="form-control" required id="password" placeholder="Nhập mật khẩu" value="'.$profile[0]['user_password'].'">';
                                                                 ?>
                                                                 
                                                             </div>
@@ -143,7 +183,7 @@
                                                             <div class="form-group">
                                                                 <label for="fullname">Họ và tên</label>
                                                                 <?php
-                                                                    echo '<input type="text" class="form-control" required id="fullname" placeholder="Nhập họ và tên" value="'.$profile[0]['user_fullname'].'">'
+                                                                    echo '<input type="text" class="form-control" required id="fullname" placeholder="Nhập họ và tên" value="'.$profile[0]['user_fullname'].'">';
                                                                 ?>
                                                             </div>
                                                         </div>
@@ -235,10 +275,6 @@
             </div>
         </div>
     </section>
-
-
-
-    <!-- Analytics -->
 
 </body>
 

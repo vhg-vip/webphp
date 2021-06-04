@@ -26,7 +26,7 @@ function updateProfile(id){
         birth: $(`#birth`).val(),
         job: $(`#job`).val(),
     }
-    console.log(user);
+    // console.log(user);
     if(!isEmail(user.email)){
         $('.error').html('Email chưa đúng');
     } 
@@ -44,5 +44,30 @@ function updateProfile(id){
                 location.reload();
             }
         });
+    }
+}
+
+function changePassword(id){
+    
+    console.log(id);
+    var p = $('#password').val();
+    var old = $('#old-password').val(), newpw = $('#new-password').val(), cf_newpw = $('#comfirm-new-password').val();
+    if(old !== p){
+        $('#msg').html('Mật khẩu không đúng');
+    }
+    else if(newpw !== cf_newpw){
+        $('#msg').html('Mật khẩu không khớp');
+    }
+    else{
+        $.ajax({    
+            type: "GET",
+            url: "../controller/changePassword.php", 
+            data:{userid: id, new_password: newpw },            
+            success: function(data){   
+                console.log(data);
+                location.reload();
+            }
+        });
+        
     }
 }

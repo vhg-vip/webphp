@@ -19,15 +19,16 @@
     <?php
         // $sql = 'SELECT * FROM tbl_loivipham WHERE biensoxe = ';
         
-        $bienso = '';
-        if(!empty($_POST)){
-            if(isset($_POST['bienso'])){
-                $bienso = $_POST['bienso'];
-            }
-        }
+        // $bienso = '';
+        // if(!empty($_POST)){
+        //     if(isset($_POST['bienso'])){
+        //         $bienso = $_POST['bienso'];
+        //     }
+        // }
         $res = [];
         if(isset($_GET['bienso']) && $_GET['bienso']!=''){
-            $sql='select * from tbl_loivipham where biensoxe like "%'.$_GET['bienso'].'%"';
+            $biensoxe = $_GET['bienso'];
+            $sql='SELECT * FROM tbl_loivipham WHERE biensoxe = "%'.$biensoxe.'%"';
             $res = executeResult($sql);
         }
         else{
@@ -60,6 +61,8 @@
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
+                    <th>Biển số</th>
+                    <th>Phương tiện</th>
                     <th>Thời gian</th>
                     <th>Địa điểm</th>
                     <th>Lỗi vi phạm</th>
@@ -75,6 +78,8 @@
                             echo 
                             '<tr>'
                                 .'<td>'.$key.'</td>'
+                                .'<td>'.$item['biensoxe'].'</td>'
+                                .'<td>'.$item['phuongtien'].'</td>'
                                 .'<td>'.$item['ngaygio'].'</td>'
                                 .'<td>'.$item['diadiem'].'</td>'
                                 .'<td>'.$item['loivipham'].'</td>'

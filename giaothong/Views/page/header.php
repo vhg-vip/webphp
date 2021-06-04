@@ -26,14 +26,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="support.php">Hỗ trợ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="statistic.php">Thống kê</a>
+                    </li>
                 </div>
                 <div class="d-flex">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="login.php">Đăng nhập</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Đăng ký</a>
-                    </li> -->
                     <li class="nav-item">
                         <a href="profile.php" class="nav-link"><i class="far fa-user text-white mr-3"></i><?php echo $user[0]['user_name'] ?></a>
                     </li>

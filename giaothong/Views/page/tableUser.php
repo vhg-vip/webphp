@@ -1,4 +1,4 @@
-<!-- <script src="../js/admin.js"></script> -->
+<!-- <script src="../js/adminnnn.js"></script> -->
 
 <h2 class="text-center mt-3 mb-4">Người dùng</h2>
 <div class="table-responsive">

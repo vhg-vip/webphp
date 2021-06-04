@@ -83,13 +83,14 @@ function editLoiViPham(id){
         bienso: $(`#bienso${id}`).val(),
         loivipham: $(`#loi${id}`).val(),
         diadiem: $(`#diadiem${id}`).val(),
+        phuongtien: $(`#phuongtien${id}`).val(),
         thoigian: $(`#time${id}`).val(),
         hinhthuc: $(`#hinhthuc${id}`).val(),
         mucphat: $(`#mucphat${id}`).val(),
         trangthai: $(`#status${id}`).val()
     }
     let  dataJson= JSON.stringify(violation);
-    // console.log(violation);
+    console.log(violation);
     let check = true;
     for(let i in violation){
         if(violation[i]===''){
@@ -115,6 +116,7 @@ function addLoiViPham(){
         bienso: $(`#bienso`).val(),
         loivipham: $(`#loi`).val(),
         diadiem: $(`#diadiem`).val(),
+        phuongtien: $(`#phuongtien`).val(),
         thoigian: $(`#time`).val(),
         hinhthuc: $(`#hinhthuc`).val(),
         mucphat: $(`#mucphat`).val(),
